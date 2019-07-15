@@ -3,6 +3,14 @@
     padding: 0;
 }
 
+.hidden {
+    display: none !important
+}
+
+.roboto {
+    font-family: 'Roboto Condensed'
+}
+
 /* ============================= NAVBAR =================================== */
 
 .navbar {
@@ -79,9 +87,9 @@ div.container-fluid {
 div.side-bar {
     background-color: white;
     border-right: 1px solid rgb(187, 187, 187);
-    /* position: fixed;
+    position: fixed;
     height: 100%;
-    z-index: 2; */
+    z-index: 2;
 }
 
 h2.streams {
@@ -106,6 +114,7 @@ li.list-group-item a {
 div.content {
     padding-top: 30px;
     background-color: rgb(233, 233, 233);
+    margin-left: auto
 }
 
 div.articles-container ul li a.nav-link {
@@ -136,12 +145,15 @@ div.article-title h1 {
 }
 
 .article-image {
-    padding: 10px;
+    padding: 10px 0;
+    text-align: right;
 }
 
 .article-image img {
     width: 80px;
     width: 80px;
+    border: 1px solid rgb(92, 92, 92);
+    border-radius: 3px;
 }
 
 span.timestamp {
@@ -172,7 +184,7 @@ div.article-form-container {
 .inp-content {
     width: 100%;
     margin: 0 auto;
-    height: 80px;
+    height: 200px;
     padding: 0 20px;
     font-family: 'Literata';
     font-size: 16px;
