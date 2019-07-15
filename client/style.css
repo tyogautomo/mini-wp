@@ -1,0 +1,184 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* ============================= NAVBAR =================================== */
+
+.navbar {
+    padding: 0;
+    z-index: 100;
+}
+
+a .navbar {
+    padding: 0
+}
+
+nav.navbar {
+    background-color: #073d36;
+    box-shadow: 0 5px 10px rgba(42, 42, 42, 0.616)
+}
+
+a {
+    display: inline-block;
+}
+
+a.navbar-brand {
+    color: white;
+    font-family: 'Lobster';
+    font-size: 25px;
+}
+
+.write a {
+    color: rgb(7, 61, 54);
+}
+
+img.profile-icon {
+    width: 30px;
+    border-radius: 100%;
+    border: 2px solid white;
+}
+
+img.brand-icon {
+    width: 30px;
+    border-radius: 100%;
+}
+
+.nav-item a {
+    color: white;
+}
+
+div.setting ul li a {
+    color: rgb(7, 61, 54)
+}
+
+#navbarSupportedContent ul li a.nav-link {
+    display: flex;
+    align-items: center;
+    color: white;
+    background-color: transparent;
+    transition: 0.2s;
+    height: 60px;
+    padding: 0 20px;
+}
+
+#navbarSupportedContent ul li a.nav-link:hover {
+    background-color: rgb(2, 39, 34)
+}
+
+/* ========================= CONTAINER ===================================== */
+
+div.container-fluid {
+    height: 1000px;
+    padding: 0;
+    position: relative;
+    top: 60px;
+}
+
+/* ========================= SIDE BAR ================================ */
+div.side-bar {
+    background-color: white;
+    border-right: 1px solid rgb(187, 187, 187);
+    /* position: fixed;
+    height: 100%;
+    z-index: 2; */
+}
+
+h2.streams {
+    margin-top: 20px;
+    font-family: 'Oswald'
+}
+
+li.list-group-item {
+    background-color: transparent;
+    padding-left: 0;
+}
+
+li.list-group-item a {
+    display: flex;
+    align-items: center;
+    color: black;
+    font-family: 'Roboto Condensed'
+}
+
+/* ================== CONTENT ================================== */
+
+div.content {
+    padding-top: 30px;
+    background-color: rgb(233, 233, 233);
+}
+
+div.articles-container ul li a.nav-link {
+    color: black;
+    margin-right: 10px;
+}
+
+div.nav-articles {
+    border-bottom: 1px solid rgb(139, 139, 139);
+    padding-bottom: 10px;
+}
+
+div.list-articles {
+    margin-top: 30px;
+}
+
+/* ====================== CARD */
+div.card {
+    width: 90%;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(42, 42, 42, 0.616);
+    margin-bottom: 20px;
+}
+
+div.article-title h1 {
+    font-family: 'Literata';
+    font-size: 28px;
+}
+
+.article-image {
+    padding: 10px;
+}
+
+.article-image img {
+    width: 80px;
+    width: 80px;
+}
+
+span.timestamp {
+    color: rgb(168, 168, 168);
+    font-size: 15px;
+}
+
+/* ============================ FORM */
+
+div.article-form-container {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.inp-title {
+    width: 100%;
+    height: 80px;
+    padding: 0 20px;
+    font-family: 'Literata';
+    font-size: 40px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 1px solid rgb(190, 190, 190);
+    margin-bottom: 40px;
+}
+
+.inp-content {
+    width: 100%;
+    margin: 0 auto;
+    height: 80px;
+    padding: 0 20px;
+    font-family: 'Literata';
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgb(190, 190, 190);
+}
