@@ -1,0 +1,30 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "yoga",
+      "email": "yoga@mail.com"
+    }
+  ],
+  "articles": [
+    {
+      "id": 0,
+      "userId": 1,
+      "title": "Halo",
+      "content": "Halo halo bandung ibu kota",
+      "createdAt": ""
+    },
+    {
+      "id": 1,
+      "userId": "1",
+      "title": "Bikin lagi coy",
+      "content": "cobain nembak dari postman",
+      "createdAt": "1996-10-15T00:05:32.000Z"
+    },
+    {
+      "title": "Bikin lewat mongoose",
+      "content": "lagi ngerjain server",
+      "id": 2
+    }
+  ]
+}
