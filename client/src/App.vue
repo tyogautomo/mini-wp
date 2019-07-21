@@ -15,6 +15,7 @@
       @update-article="updateArticle"
       @preview-article="previewArticle"
       :preview="preview"
+      @search-article="searchArticle"
       v-if="token"
     ></Content>
     <LandingPage @register="register" :changeView="modalForm" @login="login" v-if="!token"></LandingPage>
@@ -263,6 +264,26 @@ export default {
           this.currentArticle = data;
           this.preview = true;
           this.userpage = false;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    searchArticle: function(search) {
+      this.articles = [];
+      axios({
+        method: "get",
+        url: "http://localhost:3000/articles",
+        headers: {
+          token: localStorage.getItem("token")
+        }
+      })
+        .then(({ data }) => {
+          data.forEach(element => {
+            if (element.title.toLowerCase().includes(search.toLowerCase())) {
+              this.articles.push(element);
+            }
+          });
         })
         .catch(err => {
           console.log(err);

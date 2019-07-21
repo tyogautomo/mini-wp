@@ -3,7 +3,7 @@
     <div class="show-article">
       <div class="articles-container container">
         <!-- ================================ NAV ARTICLE -->
-        <NavArticle v-if="userpage"></NavArticle>
+        <NavArticle v-if="userpage" @search-article="searchArticle"></NavArticle>
         <!-- =========================== LIST ARTICLE =========================== -->
         <div
           class="list-articles d-flex flex-column align-items-center"
@@ -81,6 +81,9 @@ export default {
     },
     previewArticle(id) {
       this.$emit("preview-article", id);
+    },
+    searchArticle(search) {
+      this.$emit("search-article", search);
     }
   }
 };
