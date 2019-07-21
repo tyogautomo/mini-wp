@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Oswald|Roboto+Condensed|Literata&display=swap"
+        rel="stylesheet">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- style css -->
+    <link rel="stylesheet" href="./style.css" type="text/css">
+    <!-- google -->
+    <meta name="google-signin-client_id"
+        content="800616839115-v04olo2jcipsoicrkasli0lpd603qnsn.apps.googleusercontent.com">
+    <title>Mini Wordpress</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- =========================== NAVBAR ==================================== -->
+        <nav class="navbar navbar-expand-lg navbar-light d-flex fixed-top">
+
+            <div class="brand col-sm-3 d-flex align-items-center justify-content-around" @click.prevent="displayList">
+                <a class="col-2" href=""><img class="brand-icon" src="./static/mlogo.png" alt=""></a>
+                <a class="col-10 navbar-brand text-white align-items-center home" href="#"
+                    @click.prevent="getArticle">Mini Wordpress</a>
+            </div>
+
+            <div class="collapse navbar-collapse col-sm-6" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="">Home</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="setting col-sm-3 align-items-center">
+                <div class="setting-btn" v-show="isLogin">
+                    <ul class="navbar-nav mr-auto d-flex align-items-center justify-content-around">
+                        <li class="nav-item active btn btn-light write"><a href="" @click.prevent="displayForm">+
+                                Write</a>
+                        </li>
+                        <li class="nav-item active"><a href=""><img class="profile-icon" src="./static/portrait.jpg"
+                                    alt="profile-icon"></a></li>
+                        <li><a class="nav-item active" href=""><img class="profile-icon" src="./static/notif.png"
+                                    alt="notif"></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="login-btn-area" v-show="!isLogin">
+                    <div class="login d-flex justify-content-end">
+                        <img class="login" src="./static/round-person-24px.svg" alt="">
+                        <a class="align-self-end login-btn" href="">Login</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- =========================== CONTENT-BODY ==================================== -->
+        <!-- ================= USER-PAGE -->
+        <div class="userpage" v-show="isLogin">
+            <div class="container-fluid d-flex">
+                <!-- ========================= SIDE BAR ================================= -->
+                <div class="side-bar col-sm-2 d-flex flex-column">
+                    <h2 class="streams">Streams</h2>
+                    <div class="menu-list">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><a href=""><img src="./static/check-round.svg" alt="icon"><span
+                                        class="col-sm-10">Followed Sites</span></a></li>
+                            <li class="list-group-item"><a href=""><img src="./static/chat-round.svg" alt="icon"><span
+                                        class="col-sm-10">Conversations</span></a></li>
+                            <li class="list-group-item"><a href=""><img src="./static/round-public-24px.svg"
+                                        alt="icon"><span class="col-sm-10">Discover</span></a></li>
+                            <li class="list-group-item"><a href=""><img src="./static/round-search-24px.svg"
+                                        alt="icon"><span class="col-sm-10">Search</span></a></li>
+                            <li class="list-group-item"><a href=""><img src="./static/round-star_rate-18px.svg"
+                                        alt="icon"><span class="col-sm-10">My Likes</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- ========================= CONTENT ================================= -->
+                <div class="content col-sm-10 d-flex flex-column">
+                    <!-- =================== ARTICLE LIST ================== -->
+                    <div class="show-article" v-show="dsplList">
+                        <div class="articles-container container">
+                            <!-- ================================ NAV ARTICLE -->
+                            <div class="nav-articles row justify-content-around">
+                                <ul class="nav nav-pills col-md-8">
+                                    <li class="nav-item">
+                                        <a class="nav-link" :class="{active:publishNav}" href="#"
+                                            @click.prevent="clickPublish">Published</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#" :class="{active:draftNav}"
+                                            @click.prevent="clickDraft">Drafts</a>
+                                    </li>
+                                </ul>
+
+                                <div class="search-articles col-md-4 d-flex justify-content-end">
+                                    <img src="./static/round-search-24px.svg" alt="search">
+                                    <input type="text" name="search" id="search" v-model="search">
+                                </div>
+                            </div>
+
+                            <!-- =========================== LIST ARTICLE =========================== -->
+                            <div class="list-articles d-flex flex-column align-items-center" id="list-articles">
+
+                                <div class="card row flex-row align-items-center" v-for="item in articles">
+                                    <div class="article-title col-9">
+                                        <h1><a href=""> {{item.title}} </a></h1>
+                                        <p class="paragraph"> {{item.content}} </p>
+                                        <span class="timestamp">1 days ago</span>
+                                    </div>
+                                    <div class="article-image col-2">
+                                        <img src="./static/portrait.jpg" alt="image">
+                                    </div>
+                                    <div
+                                        class="article-options col-1 d-flex flex-column justify-content-between align-content-stretch">
+                                        <a href="" class="edit" @click.prevent="updatePage(item._id)"><img
+                                                src="./static/round-edit-24px.svg" alt="edit"></a>
+                                        <a href="" class="delete" @click.prevent="deleteArticle(item._id)"><img
+                                                src="./static/baseline-delete-24px.svg" alt="edit"></a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- =================== ARTICLE FORM ================== -->
+                    <div id="form-article">
+                        <div class="article-form-container" v-show="dsplForm">
+                            <h1 class="new-article roboto">New Article</h1>
+                            <form>
+                                <input class="inp-title" type="text" name="inp-article-title" id="inp-article-title"
+                                    placeholder="Title here.." v-model="title">
+                                <textarea class="inp-content" name="content" id="justify-content-center" cols="30"
+                                    rows="10" placeholder="Tell your story .." v-model="content"></textarea>
+                                <button class="btn btn-primary" href="" @click.prevent="createArticle">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- =================== ARTICLE EDIT ================== -->
+                    <div id="edit-article">
+                        <div class="article-form-container" v-show="dsplEdit">
+                            <h1 class="new-article roboto">Edit Article</h1>
+                            <form>
+                                <input class="inp-title" type="text" name="inp-article-title" placeholder="Title here.."
+                                    v-model="title">
+                                <textarea class="inp-content" name="content" id="justify-content-center" cols="30"
+                                    rows="10" placeholder="Tell your story .."
+                                    v-model="content">{{ article.content }}</textarea>
+                                <button class="btn btn-primary" href=""
+                                    @click.prevent="updateArticle(article._id)">Edit</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= LOGIN-PAGE -->
+        <div class="container-fluid home-page" v-show="false">
+            <div class="form-login d-flex flex-column align-items-center">
+                <h1 class="login-text">Login</h1>
+                <form class="d-flex flex-column">
+                    <p class="email-inp login-form">Email</p>
+                    <input class="login-form" type="text" v-model="formLogin.email" placeholder="Enter your email">
+                    <p class="password-inp login-form">Password</p>
+                    <input class="login-form" type="password" v-model="formLogin.password"
+                        placeholder="Enter your Password">
+                    <p class="term login-form">By signing up you accept our <a href="">Term Of Use</a></p>
+                    <button class="btn btn-primary login-btn">Login</button>
+                </form>
+                <p class="or">or</p>
+                <p>Signup using Google</p>
+                <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            </div>
+        </div>
+
+        <!-- ================= REGISTER-PAGE -->
+        <div class="container-fluid home-page" v-show="false">
+            <div class="row home-content">
+                <div class="banner-brand col-5"></div>
+                <div class="form-register col-6"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <!-- ========================= SCRIPT =========================== -->
+    <!-- google -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!-- vuejs -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <!-- axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <!-- vue local -->
+    <script src="./js/vue.js"></script>
+    <!-- src mainjs -->
+    <script src="./src/main.js"></script>
+</body>
+
+</html>

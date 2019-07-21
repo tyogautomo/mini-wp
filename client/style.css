@@ -18,23 +18,47 @@
     z-index: 100;
 }
 
+div.brand {
+    height: 60px;
+}
+
 a .navbar {
     padding: 0
 }
 
 nav.navbar {
-    background-color: #073d36;
-    box-shadow: 0 5px 10px rgba(42, 42, 42, 0.616)
+    background-color: #661c1c;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.616)
 }
 
 a {
     display: inline-block;
 }
 
+div.collapse ul li {
+    font-family: 'Oswald';
+    color: azure;
+}
+
 a.navbar-brand {
     color: white;
     font-family: 'Lobster';
     font-size: 25px;
+}
+
+
+img.login {
+    margin-right: 10px;
+    filter: invert(100%)
+}
+
+a.login-btn {
+    margin: 0;
+    font-family: 'Oswald';
+    color: azure;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 23px;
 }
 
 .write a {
@@ -57,7 +81,7 @@ img.brand-icon {
 }
 
 div.setting ul li a {
-    color: rgb(7, 61, 54)
+    color: rgb(255, 255, 255)
 }
 
 #navbarSupportedContent ul li a.nav-link {
@@ -71,7 +95,7 @@ div.setting ul li a {
 }
 
 #navbarSupportedContent ul li a.nav-link:hover {
-    background-color: rgb(2, 39, 34)
+    background-color: rgb(61, 8, 8)
 }
 
 /* ========================= CONTAINER ===================================== */
@@ -111,10 +135,15 @@ li.list-group-item a {
 
 /* ================== CONTENT ================================== */
 
+body {
+    background-color: rgb(233, 233, 233);
+}
+
 div.content {
     padding-top: 30px;
     background-color: rgb(233, 233, 233);
-    margin-left: auto
+    margin-left: auto;
+    margin-top: 50px;
 }
 
 div.articles-container ul li a.nav-link {
@@ -127,6 +156,10 @@ div.nav-articles {
     padding-bottom: 10px;
 }
 
+img.search-img {
+    width: 40px;
+}
+
 div.list-articles {
     margin-top: 30px;
 }
@@ -137,6 +170,7 @@ div.card {
     background-color: white;
     box-shadow: 0 0 5px rgba(42, 42, 42, 0.616);
     margin-bottom: 20px;
+    padding: 10px 0;
 }
 
 div.article-title h1 {
@@ -159,6 +193,11 @@ div.article-title h1 {
 span.timestamp {
     color: rgb(168, 168, 168);
     font-size: 15px;
+}
+
+p.paragraph {
+    margin-left: 20px;
+    color: grey
 }
 
 /* ============================ FORM */
@@ -193,4 +232,51 @@ div.article-form-container {
     background-color: transparent;
     margin-bottom: 20px;
     border-bottom: 1px solid rgb(190, 190, 190);
+}
+
+/* ======================== FORM LOGIN */
+
+div.home-page {
+    background-image: url('https://i.ibb.co/yV9xYHr/wheat.png');
+    height: 100%;
+}
+
+div.form-login {
+    position: relative;
+    top: 50px;
+    margin: auto;
+    width: 40%;
+    background-color: azure;
+    padding: 30px 0;
+    font-family: 'Oswald';
+    border-radius: 20px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.602)
+}
+
+h1.login-text {
+    font-family: 'Lobster'
+}
+
+input.login-form {
+    width: 100%;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid rgb(110, 110, 110);
+    outline: none;
+    background-color: transparent;
+}
+
+p.login-form {
+    margin-bottom: 10px;
+}
+
+button.login-btn {
+    margin-bottom: 20px;
+}
+
+/* =================================== LANDING PAGE */
+
+div.home-content {
+    width: 80%;
+    height: 800px;
 }

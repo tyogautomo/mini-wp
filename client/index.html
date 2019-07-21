@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="./static/mlogo.png" />
+    <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lobster|Oswald|Roboto+Condensed|Literata&display=swap"
         rel="stylesheet">
     <!-- bootstrap -->
@@ -12,146 +15,33 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- style css -->
     <link rel="stylesheet" href="./style.css" type="text/css">
+    <!-- google -->
+    <meta name="google-signin-client_id"
+        content="800616839115-v04olo2jcipsoicrkasli0lpd603qnsn.apps.googleusercontent.com">
     <title>Mini Wordpress</title>
 </head>
 
 <body>
 
-    <!-- =========================== NAVBAR ==================================== -->
-    <nav class="navbar navbar-expand-lg navbar-light d-flex fixed-top">
-
-        <div class="brand col-sm-3 d-flex align-items-center justify-content-around">
-            <a class="col-2" href=""><img class="brand-icon" src="./static/mlogo.png" alt=""></a>
-            <a class="col-10 navbar-brand text-white align-items-center home" href="#">Mini Wordpress</a>
-        </div>
-
-        <div class="collapse navbar-collapse col-sm-6" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link home" href="#">Reader</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="setting col-sm-3">
-            <ul class="navbar-nav mr-auto d-flex align-items-center justify-content-around">
-                <li class="nav-item active btn btn-light write"><a href="">+ Write</a></li>
-                <li class="nav-item active"><a href=""><img class="profile-icon" src="./static/portrait.jpg"
-                            alt="profile-icon"></a></li>
-                <li><a class="nav-item active" href=""><img class="profile-icon" src="./static/notif.png"
-                            alt="notif"></a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="container-fluid d-flex">
-        <!-- ========================= SIDE BAR ================================= -->
-
-        <div class="side-bar col-sm-2 d-flex flex-column">
-            <h2 class="streams">Streams</h2>
-            <div class="menu-list">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><a href=""><img src="./static/check-round.svg" alt="icon"><span
-                                class="col-sm-10">Followed Sites</span></a></li>
-                    <li class="list-group-item"><a href=""><img src="./static/chat-round.svg" alt="icon"><span
-                                class="col-sm-10">Conversations</span></a></li>
-                    <li class="list-group-item"><a href=""><img src="./static/round-public-24px.svg" alt="icon"><span
-                                class="col-sm-10">Discover</span></a></li>
-                    <li class="list-group-item"><a href=""><img src="./static/round-search-24px.svg" alt="icon"><span
-                                class="col-sm-10">Search</span></a></li>
-                    <li class="list-group-item"><a href=""><img src="./static/round-star_rate-18px.svg" alt="icon"><span
-                                class="col-sm-10">My Likes</span></a></li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- ========================= CONTENT ================================= -->
-        <div class="content col-sm-10 d-flex flex-column">
-
-            <div class="articles-container container">
-                <!-- ================================ NAV ARTICLE -->
-                <div class="nav-articles row justify-content-around">
-                    <ul class="nav nav-pills col-md-8">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Published</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Drafts</a>
-                        </li>
-                    </ul>
-
-                    <div class="search-articles col-md-4 d-flex justify-content-end">
-                        <img src="./static/round-search-24px.svg" alt="search">
-                        <input type="text" name="search" id="search">
-                    </div>
-                </div>
-
-                <!-- =========================== LIST ARTICLE =========================== -->
-                <div class="list-articles d-flex flex-column align-items-center">
-                    <div class="card row flex-row align-items-center">
-                        <div class="article-title col-9">
-                            <h1>The Journey Almost End</h1>
-                            <span class="timestamp">1 days ago</span>
-                        </div>
-                        <div class="article-image col-2">
-                            <img src="./static/portrait.jpg" alt="image">
-                        </div>
-                        <div class="article-options col-1">
-                            <a href=""><img src="./static/round-edit-24px.svg" alt="edit"></a>
-                        </div>
-                    </div>
-                    <div class="card row flex-row align-items-center">
-                        <div class="article-title col-9">
-                            <h1>The Journey Begins</h1>
-                            <span class="timestamp">7 years ago</span>
-                        </div>
-                        <div class="article-image col-2">
-                            <img src="./static/img1.jpeg" alt="image">
-                        </div>
-                        <div class="article-options col-1">
-                            <a href=""><img src="./static/round-edit-24px.svg" alt="edit"></a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- =================== ARTICLE FORM ================== -->
-            <div class="article-form-container" style="display: none">
-                <h1 class="new-article roboto">New Article</h1>
-                <form>
-                    <input class="inp-title" type="text" name="inp-article-title" id="inp-article-title"
-                        placeholder="Title here..">
-                    <textarea class="inp-content" name="content" id="justify-content-center" cols="30" rows="10"
-                        placeholder="Tell your story .."></textarea>
-                    <a class="btn btn-primary" href="">Submit</a>
-                </form>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
+    <div id="app"></div>
 
     <!-- ========================= SCRIPT =========================== -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
+    <!-- google -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!-- vuejs -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <!-- bootstrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
     </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
-    <script src="./js/main.js"></script>
+    <!-- src mainjs -->
+    <script src="./src/main.js"></script>
 </body>
 
 </html>

@@ -3,11 +3,13 @@ const Article = require('../models/article')
 class ArticleController {
 
     static createArticle(req, res, next) {
-
+        // console.log('masuk jonnnnn!!!')
+        console.log(req.file, 'dari controller create <<<<<<<<<<<<<<<<<<<<<<<<')
         Article.create({
                 title: req.body.title,
-                content: req.body.content,
-                createdAt: new Date()
+                content: req.body.content, //currently hardcore
+                author: req.headers.decode.id,
+                featured_image: req.body.featured_image //currently empty
             })
             .then(article => {
                 res.status(201).json(article)
@@ -17,8 +19,9 @@ class ArticleController {
     }
 
     static getAll(req, res, next) {
-
-        Article.find()
+        Article.find({
+                author: req.headers.decode.id
+            })
             .then(articles => {
                 res.status(200).json(articles)
             })
@@ -26,7 +29,7 @@ class ArticleController {
     }
 
     static delete(req, res, next) {
-        console.log('masuk <<<<<<<<<<<<<<<<<<<<<<<<<<')
+        // console.log('masuk <<<<<<<<<<<<<<<<<<<<<<<<<<')
         Article.deleteOne({
                 _id: req.params.articleId
             })
